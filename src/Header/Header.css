@@ -1,0 +1,37 @@
+.header {
+    display: absolute;
+    background-color: black;
+    color: white;   
+}
+
+.header-navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+}
+
+.header-navigation-items {
+    display: none;
+    flex-direction: row;
+    justify-content: space-around;
+    color: white;
+
+}
+
+.nav-link {
+    color:white;
+    text-decoration: none;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 80%;
+}
+
+.header-title {
+    text-align: center;
+}
