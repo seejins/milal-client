@@ -17,6 +17,7 @@
     flex-direction: row;
     justify-content: space-around;
     color: white;
+    width: 50%;
 
 }
 
@@ -35,3 +36,13 @@ ul {
 .header-title {
     text-align: center;
 }
+
+@media (min-width: 500px) {
+    .header-toggle-button {
+      display: none;
+    }
+
+    .header-navigation-items {
+        display: flex;
+    }
+  }
