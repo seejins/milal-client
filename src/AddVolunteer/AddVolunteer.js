@@ -82,7 +82,7 @@ class AddVolunteer extends Component {
                     <form className='volunteer-form' action='#' onChange={e => this.updateName(e.target.value)} onSubmit={this.handleSubmit}>
                         <div className='field'>
                             <label htmlFor='volunteer-name'>
-                                Name
+                                Name:
                         </label>
                             <input type='text' id='volunteer-name' name='volunteer-name' aria-label='volunteer name' />
                             {this.state.name.touched === true && <ValidationError message={volunteerError} />}
