@@ -3,6 +3,7 @@ import VolunteersContext from '../VolunteersContext'
 import config from '../config'
 import ValidationError from '../ValidationError'
 import PropTypes from 'prop-types'
+import './AddVolunteer.css'
 
 
 class AddVolunteer extends Component {
@@ -21,6 +22,10 @@ class AddVolunteer extends Component {
             }
         }
     }
+
+    handleClick = () => {
+        this.props.toggle();
+    };
 
     static contextType = VolunteersContext
 
@@ -46,6 +51,7 @@ class AddVolunteer extends Component {
             .then(volunteer => {
                 this.context.addVolunteer(volunteer)
                 this.props.history.push(`/volunteer/${volunteer.id}`)
+                this.props.toggle()
             })
             .catch(error => {
                 console.error({ error })
@@ -69,23 +75,26 @@ class AddVolunteer extends Component {
         const volunteerError = this.validateName()
 
         return (
-            <section classname='add-volunteer'>
-                <h2>Add a new volunteer</h2>
-                <form className='volunteer-form' action='#' onChange={e => this.updateName(e.target.value)} onSubmit={this.handleSubmit}>
-                    <div className='field'>
-                        <label htmlFor='volunteer-name'>
-                            Name
+            <div className='add-volunteer'>
+                <section className='add-volunteer-content'>
+                    <span className='close' onClick={this.handleClick}>&times;</span>
+                    <h2 className='add-volunteer-title'>Add a new volunteer</h2>
+                    <form className='volunteer-form' action='#' onChange={e => this.updateName(e.target.value)} onSubmit={this.handleSubmit}>
+                        <div className='field'>
+                            <label htmlFor='volunteer-name'>
+                                Name
                         </label>
-                        <input type='text' id='volunteer-name' name='volunteer-name' aria-label='volunteer name'/>
-                        {this.state.name.touched === true && <ValidationError message={volunteerError}/>}
-                    </div>
-                    <div className='buttons'>
-                        <button type='submit' className='button' disabled={this.validateName()}>
-                            Add Volunteer
+                            <input type='text' id='volunteer-name' name='volunteer-name' aria-label='volunteer name' />
+                            {this.state.name.touched === true && <ValidationError message={volunteerError} />}
+                        </div>
+                        <div className='buttons'>
+                            <button type='submit' className='button' disabled={this.validateName()}>
+                                Add Volunteer
                         </button>
-                    </div>
-                </form>
-            </section>
+                        </div>
+                    </form>
+                </section>
+            </div>
         )
     }
 }

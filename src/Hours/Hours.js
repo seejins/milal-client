@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import config from '../config'
 import VolunteersContext from '../VolunteersContext'
 import PropTypes from 'prop-types'
+import './Hours.css'
 
 class Hours extends Component {
     static defaultProps = {
@@ -38,19 +39,20 @@ class Hours extends Component {
         return (
             <>
                 <div className="hour">
-                    <h2 className='hour-title'>
+                    <h3 className='hour-title'>
 
                         {date_added}
 
-                    </h2>
+                    </h3>
+                    <div className='hour-content'>
+                        <div className='hour-amount'>
+                            Hours: {hours}
+                        </div>
 
-                    <div className='hour-amount'>
-                        {hours}
+                        <button className='hours-delete' type='button' onClick={this.handleClickDelete}>
+                            Delete
+                        </button>
                     </div>
-
-                    <button className='hours-delete' type='button' onClick={this.handleClickDelete}>
-                        Delete
-                </button>
                 </div>
             </>
         )
@@ -58,7 +60,7 @@ class Hours extends Component {
 }
 
 Hours.propTypes = {
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     hours: PropTypes.number.isRequired,
     date_added: PropTypes.string.isRequired
 }

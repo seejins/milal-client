@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import VolunteersContext from '../VolunteersContext'
+import './Sidebar.css'
 
 
 class Sidebar extends Component {

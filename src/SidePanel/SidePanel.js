@@ -14,7 +14,6 @@ const sidePanel = props => {
       <ul>
         <li><NavLink to="/" onClick={props.panelClickHandler}>Home</NavLink></li>
         <li><NavLink to="/volunteer" onClick={props.panelClickHandler}>Volunteers</NavLink></li>
-        <li><NavLink to="/add-volunteer" onClick={props.panelClickHandler}>Add Volunteer</NavLink></li>
         <li><NavLink to="/add-hours" onClick={props.panelClickHandler}>Add Hours</NavLink></li>
       </ul>
     </nav>

@@ -1,0 +1,13 @@
+.hour {
+    width: 80%;
+}
+
+.hour-title {
+    border-bottom: 1px solid black;
+    text-align: left;
+}
+
+.hour-content {
+    display: flex;
+    justify-content: space-around;
+}

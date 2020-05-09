@@ -11,7 +11,7 @@ const header = props => (
                 <h1>Milal Mission</h1>
             </div>
             <div className='header-navigation-items'>
-                <ul>
+                <ul className='navigation-list'>
                     <li><NavLink className='nav-link' to='/'>Home</NavLink></li>
                     <li><NavLink className='nav-link' to='/volunteer'>Volunteers</NavLink></li>
                     <li><NavLink className='nav-link' to='/add-volunteer'>Add Volunteer</NavLink></li>
