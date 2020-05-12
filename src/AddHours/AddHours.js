@@ -75,7 +75,6 @@ class AddHours extends Component {
 
     updateVolunteer(volunteer) {
         this.setState({ volunteer: { value: volunteer, touched: true } })
-        console.log(this.state.volunteer)
     }
 
     validateHours() {
@@ -89,8 +88,6 @@ class AddHours extends Component {
 
     validateVolunteer() {
         const volunteer = this.state.volunteer.value.trim()
-        console.log(volunteer)
-        console.log(this.state.volunteer.touched)
         if (isNaN(volunteer) === true) {
             return 'Volunteer is required'
         } else if (volunteer === '') {

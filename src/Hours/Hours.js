@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import config from '../config'
 import VolunteersContext from '../VolunteersContext'
-import AddHours from '../AddHours/AddHours'
 import PropTypes from 'prop-types'
-import edit from './edit.png'
 import './Hours.css'
 
 class Hours extends Component {
@@ -50,7 +48,7 @@ class Hours extends Component {
     };
 
     render() {
-        const { id, hours, date_added } = this.props
+        const { hours, date_added } = this.props
         return (
             <>
                 <div className="hour">

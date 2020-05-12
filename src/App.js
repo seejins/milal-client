@@ -5,7 +5,6 @@ import Main from './Main/Main'
 import VolunteerMain from './VolunteerMain/VolunteerMain'
 import AddHours from './AddHours/AddHours'
 import AddVolunteer from './AddVolunteer/AddVolunteer'
-import Sidebar from './Sidebar/Sidebar'
 import SidePanel from './SidePanel/SidePanel'
 import Header from './Header/Header'
 import Backdrop from './Backdrop/Backdrop'
@@ -121,27 +120,6 @@ class App extends Component {
 
   }
 
-  getSidebarRoute() {
-    return (
-      <>
-
-        <Route
-          exact path='/volunteer/:volunteerId'
-          key='/volunteer/:volunteerId'
-          component={Sidebar}
-        />
-
-        <Route
-          exact path='/hours/:hoursId'
-          key='/hours/:hoursId'
-          component={Sidebar}
-        />
-
-
-      </>
-    )
-  }
-
   render() {
     
     let backdrop
@@ -169,11 +147,6 @@ class App extends Component {
 
         <div className='App'>
           <VolunteersContext.Provider value={contextValues}>
-            <ErrorBoundary>
-              <nav className='App-nav'>
-                {this.getSidebarRoute()}
-              </nav>
-            </ErrorBoundary>
 
             <ErrorBoundary>
               <main className='app-main'>

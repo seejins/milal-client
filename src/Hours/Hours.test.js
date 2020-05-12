@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import Hours from './Hours';
 import { BrowserRouter } from 'react-router-dom';
 
 it('renders without crashing', () => {
@@ -8,7 +8,7 @@ it('renders without crashing', () => {
 
   ReactDOM.render(
     <BrowserRouter>
-      <App />
+      <Hours />
     </BrowserRouter>, div);
 
   ReactDOM.unmountComponentAtNode(div);
