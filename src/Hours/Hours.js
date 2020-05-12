@@ -1,12 +1,21 @@
 import React, { Component } from 'react'
 import config from '../config'
 import VolunteersContext from '../VolunteersContext'
+import AddHours from '../AddHours/AddHours'
 import PropTypes from 'prop-types'
+import edit from './edit.png'
 import './Hours.css'
 
 class Hours extends Component {
     static defaultProps = {
-        onDeleteNote: () => { },
+        onDeleteHours: () => { },
+    }
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            seen: false
+        }
     }
 
     static contextType = VolunteersContext
@@ -34,6 +43,12 @@ class Hours extends Component {
             })
     }
 
+    togglePop = () => {
+        this.setState({
+            seen: !this.state.seen
+        });
+    };
+
     render() {
         const { id, hours, date_added } = this.props
         return (
@@ -50,7 +65,7 @@ class Hours extends Component {
                         </div>
 
                         <button className='hours-delete' type='button' onClick={this.handleClickDelete}>
-                            Delete
+                            <span className='delete'>&times;</span>
                         </button>
                     </div>
                 </div>

@@ -9,5 +9,22 @@
 
 .hour-content {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 0px 15px;
+}
+
+.delete {
+    font-size: 20px;
+}
+
+.hours-delete {
+    background: transparent;
+    border: none;
+    height: 20px;
+    padding: 0;
+    width: 20px;
+}
+
+.hours-delete:hover {
+    cursor: pointer;
 }

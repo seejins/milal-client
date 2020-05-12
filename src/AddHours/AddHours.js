@@ -3,6 +3,7 @@ import VolunteersContext from '../VolunteersContext'
 import config from '../config'
 import ValidationError from '../ValidationError'
 import PropTypes from 'prop-types'
+import './AddHours.css'
 
 class AddHours extends Component {
     static defaultProps = {
@@ -25,11 +26,15 @@ class AddHours extends Component {
             },
 
             volunteer: {
-                value: '',
+                value: `${this.props.volunteerId}`,
                 touched: 'false',
             }
         }
     }
+
+    handleClick = () => {
+        this.props.toggle();
+    };
 
     static contextType = VolunteersContext
 
@@ -57,6 +62,7 @@ class AddHours extends Component {
             .then(hour => {
                 this.context.addHours(hour)
                 this.props.history.push(`/volunteer/${hour.volunteer_id}`)
+                this.props.toggle()
             })
             .catch(error => {
                 console.error({ error })
@@ -65,6 +71,11 @@ class AddHours extends Component {
 
     updateHour(hour) {
         this.setState({ hours: { value: hour, touched: true } })
+    }
+
+    updateVolunteer(volunteer) {
+        this.setState({ volunteer: { value: volunteer, touched: true } })
+        console.log(this.state.volunteer)
     }
 
     validateHours() {
@@ -76,39 +87,59 @@ class AddHours extends Component {
         }
     }
 
+    validateVolunteer() {
+        const volunteer = this.state.volunteer.value.trim()
+        console.log(volunteer)
+        console.log(this.state.volunteer.touched)
+        if (isNaN(volunteer) === true) {
+            return 'Volunteer is required'
+        } else if (volunteer === '') {
+            return 'Volunteer is required'
+        }
+    }
+
     render() {
         const { volunteers = [] } = this.context
+        const volunteer = this.props.volunteer
+        const volunteerId = this.props.volunteerId
+        const filteredList = volunteers.filter(volunteers => volunteers.id != volunteerId)
         return (
-            <section className='AddHours'>
-                <h2>Add Hours</h2>
-                <form className='hours-form' action='#' onSubmit={this.handleSubmit}>
-                    <div className='field'>
-                        <label htmlFor='hours-amount'>
-                            Amount
-                        </label>
-                        <input type='text' id='hours-amount' name='hours-amount' onChange={e => this.updateHour(e.target.value)} />
-                        {this.state.hours.touched === true && <ValidationError message={this.validateHours()} />}
-                    </div>
-                    <div className='field'>
-                        <label htmlFor='volunteer-select'>
-                            Volunteer
-                        </label>
-                        <select id='volunteer-id' name='volunteer-id' aria-label='Volunteer to add hours' required>
-                            <option value={null}>Select Volunteer </option>
-                            {volunteers.map(volunteer =>
-                                <option key={volunteer.id} value={volunteer.id}>
-                                    {volunteer.name}
-                                </option>
-                            )}
-                        </select>
-                    </div>
-                    <div className='buttons'>
-                        <button type='submit' className='button' disabled={this.validateHours}>
-                            Add Hours
+            <div className='add-container'>
+                <section className='add-content'>
+                    <span className='close' onClick={this.handleClick}>&times;</span>
+                    <h2 className='add-title'>Add Hours</h2>
+                    <form className='add-form-hours' action='#' onSubmit={this.handleSubmit}>
+                        <div className='field'>
+                            <label htmlFor='hours-amount'>
+                                Amount:
+                            </label>
+
+                            <input type='text' id='hours-amount' name='hours-amount' onChange={e => this.updateHour(e.target.value)} />
+                            {this.state.hours.touched === true && <ValidationError message={this.validateHours()} />}
+                        </div>
+                        <div className='field'>
+                            <label htmlFor='volunteer-select'>
+                                Volunteer:
+                            </label>
+
+                            <select id='volunteer-id' name='volunteer-id' aria-label='Volunteer to add hours' onChange={e => this.updateVolunteer(e.target.value)}>
+                                <option value={volunteerId}>{volunteer}</option>
+                                {filteredList.map(volunteer =>
+                                    <option key={volunteer.id} value={volunteer.id}>
+                                        {volunteer.name}
+                                    </option>
+                                )}
+                            </select>
+                            {this.state.volunteer.touched === true && <ValidationError message={this.validateVolunteer()} />}
+                        </div>
+                        <div className='buttons'>
+                            <button type='submit' className='button' disabled={this.validateHours() || this.validateVolunteer()}>
+                                Add Hours
                         </button>
-                    </div>
-                </form>
-            </section>
+                        </div>
+                    </form>
+                </section>
+            </div>
         )
     }
 }

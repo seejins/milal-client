@@ -1,0 +1,18 @@
+.add-form-hours {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: auto;
+    width: 75%;
+    height: 60%;
+}
+
+#volunteer-id {
+    padding: 10px;
+
+}
+
+label {
+    text-align: left;
+    font-weight: 500;
+}

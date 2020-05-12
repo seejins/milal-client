@@ -75,11 +75,11 @@ class AddVolunteer extends Component {
         const volunteerError = this.validateName()
 
         return (
-            <div className='add-volunteer'>
-                <section className='add-volunteer-content'>
+            <div className='add-container'>
+                <section className='add-content'>
                     <span className='close' onClick={this.handleClick}>&times;</span>
-                    <h2 className='add-volunteer-title'>Add a new volunteer</h2>
-                    <form className='volunteer-form' action='#' onChange={e => this.updateName(e.target.value)} onSubmit={this.handleSubmit}>
+                    <h2 className='add-title'>Add a new volunteer</h2>
+                    <form className='add-form' action='#' onChange={e => this.updateName(e.target.value)} onSubmit={this.handleSubmit}>
                         <div className='field'>
                             <label htmlFor='volunteer-name'>
                                 Name:

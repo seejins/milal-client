@@ -4,6 +4,7 @@ const VolunteersContext = React.createContext({
     hours: [],
     volunteers: [],
     deleteHours: () => {},
+    deleteVolunteer: () => {},
     addVolunteer: () => {},
     addHours: () => {},
 })

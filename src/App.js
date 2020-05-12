@@ -49,6 +49,12 @@ class App extends Component {
     })
   }
 
+  handleDeleteVolunteer = volunteerId => {
+    this.setState({
+      volunteers: this.state.volunteers.filter(volunteers => volunteers.id !== volunteerId)
+    })
+  }
+
   handleAddHours = hours => {
     this.setState({
       hours: [
@@ -147,6 +153,7 @@ class App extends Component {
       hours: this.state.hours,
       volunteers: this.state.volunteers,
       deleteHours: this.handleDeleteHours,
+      deleteVolunteer: this.handleDeleteVolunteer,
       addHours: this.handleAddHours,
       addVolunteer: this.handleAddVolunteer
     }
@@ -155,7 +162,7 @@ class App extends Component {
       <Fragment>
         <div style={{ height: '100%' }}>
           <Header panelClickHandler={this.panelToggleClickHandler} />
-          <SidePanel show={this.state.sidePanelOpen} panelClickHandler={this.panelToggleClickHandler} />
+          <SidePanel show={this.state.sidePanelOpen} panelClickHandler={this.panelToggleClickHandler} volunteers={this.state.volunteers} />
           {backdrop}
         </div>
 

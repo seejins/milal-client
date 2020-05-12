@@ -43,3 +43,14 @@ img {
 .add-btn {
     height: 50px;
 }
+
+.main-container {
+    height: 100vh;
+}
+
+.btn-volunteer {
+    position: fixed;
+    bottom: 5px;
+    right: 5px; 
+    padding: 10px;
+}

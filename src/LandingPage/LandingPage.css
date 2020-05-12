@@ -1,0 +1,30 @@
+.landing-page-container {
+    background-image: url('wallpaper.jpg');
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: multiply;
+    background-size: cover;
+    color: white;
+    height: 60vh;
+    text-align: center;
+    padding: 20px;
+}
+
+.landing-page-header {
+    margin: 0;
+}
+
+
+@media (min-width: 500px) {
+    .landing-page-description {
+        width: 60%;
+        margin: auto;
+        padding: 50px;
+    }
+
+}
+
+@media (min-width: 720px) {
+    .landing-page-container {
+        height: 90vh;
+    }
+}

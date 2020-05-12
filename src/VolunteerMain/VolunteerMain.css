@@ -13,9 +13,13 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    padding: 20px 30px;
+    padding: 20px 20px;
     background-color: #f7f7f7;
     border-bottom: 1px solid #e5e5e5;
+}
+
+.goBack:hover {
+    cursor: pointer;
 }
 
 .volunteer-name {
@@ -25,6 +29,7 @@
 .hours-list-container {
     margin: 0;
     padding: 0;
+    height: 100vh;
 }
 
 .hours-list {
@@ -34,3 +39,39 @@
     padding: 20px 0px;
 }
 
+.goBack {
+    height: 40%;
+    margin: auto 0px;
+}
+
+.volunteer-header-content {
+    margin: auto;
+}
+
+.add-hours-button {
+    display: none;
+}
+
+@media (min-width: 500px) {
+    .hours-list-container {
+        width: 70%;
+        margin: auto;
+    }
+
+    .goBack {
+        padding: 0px 20px;
+    }
+
+    .add-hours-button {
+        display: block;
+        padding: 0px 20px;
+    }
+
+    .add-hours-button:hover {
+        cursor: pointer;
+    }
+
+    .btn {
+        display: none;
+    }
+}

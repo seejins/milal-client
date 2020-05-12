@@ -8,13 +8,18 @@ const header = props => (
     <header className='header'>
         <nav className='header-navigation'>
             <div className='header-title'>
-                <h1>Milal Mission</h1>
+                <NavLink to='/'>
+                    <h1 className='header-title'>Milal Mission</h1>
+                </NavLink>
             </div>
             <div className='header-navigation-items'>
                 <ul className='navigation-list'>
-                    <li><NavLink className='nav-link' to='/'>Home</NavLink></li>
-                    <li><NavLink className='nav-link' to='/volunteer'>Volunteers</NavLink></li>
-                    <li><NavLink className='nav-link' to='/add-hours'>Add Hours</NavLink></li>
+                    <li><NavLink className='nav-link' to='/'>
+                        <h4>Home</h4>
+                    </NavLink></li>
+                    <li><NavLink className='nav-link' to='/volunteer'>
+                        <h4>Volunteers</h4>
+                    </NavLink></li>
                 </ul>
             </div>
             <div className='header-toggle-button'>

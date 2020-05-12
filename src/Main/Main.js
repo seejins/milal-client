@@ -39,18 +39,14 @@ class Main extends Component {
                                         <h3 className='volunteer-name'>
                                             {volunteer.name}
                                         </h3>
-                                        <div className='volunteer-total-hours'>
-                                            Total Hours: {volunteer.total_hours}
-                                        </div>
                                     </div>
-
                                 </div>
                             </NavLink>
                         </li>)}
                 </ul>
 
                 <div>
-                    <div className="btn" onClick={this.togglePop}>
+                    <div className="btn-volunteer" onClick={this.togglePop}>
                         <img className='add-btn' src={addButton} alt='add volunteer button' />
                     </div>
                     {this.state.seen ? <AddVolunteer toggle={this.togglePop} /> : null}

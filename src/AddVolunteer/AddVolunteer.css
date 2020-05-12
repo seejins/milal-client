@@ -1,4 +1,4 @@
-.add-volunteer-title {
+.add-title {
     height: 100px;
     display: flex;
     flex-direction: column;
@@ -8,7 +8,7 @@
     text-align: center;
 }
 
-.add-volunteer {  
+.add-container {  
     position: fixed;  
     width: 100%;  
     height: 100%;  
@@ -20,7 +20,7 @@
     background-color: rgba(0,0,0, 0.5);  
 }  
 
-.add-volunteer-content {  
+.add-content {  
     position: absolute;  
     left: 8%;  
     right: 8%;  
@@ -38,7 +38,7 @@
     padding-right: 10px;
 }
 
-.volunteer-form {
+.add-form {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -75,4 +75,22 @@ input {
 
 .error {
     color: red;
+}
+
+.close:hover {
+    cursor: pointer;
+}
+
+@media (min-width: 500px) {
+    .add-content {
+        left: 20%;
+        right: 20%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .add-content {
+        left: 35%;
+        right: 35%;
+    }
 }
