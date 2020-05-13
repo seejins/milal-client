@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import VolunteersContext from '../VolunteersContext'
-import AddVolunteer from '../AddVolunteer/AddVolunteer'
-import Profile from './Profile.jpg'
-import addButton from './addButton.png'
-import './Main.css'
+import AddVolunteer from '../AddVolunteer/AddVolunteer';
+import Profile from './Profile.jpg';
+import addButton from './addButton.png';
+import './Main.css';
 
 class Main extends Component {
 
@@ -13,7 +13,7 @@ class Main extends Component {
         this.state = {
             seen: false
         }
-    }
+    };
 
     togglePop = () => {
         this.setState({
@@ -21,7 +21,7 @@ class Main extends Component {
         });
     };
 
-    static contextType = VolunteersContext
+    static contextType = VolunteersContext;
 
     render() {
         return (
@@ -56,4 +56,4 @@ class Main extends Component {
     }
 }
 
-export default Main
+export default Main;

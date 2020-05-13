@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 class ErrorBoundary extends Component {
     constructor(props) {
@@ -6,11 +6,11 @@ class ErrorBoundary extends Component {
         this.state={
             hasError: false
         }
-    }
+    };
 
     static getDerivedStateFromError(error) {
         return { hasError: true }
-    }
+    };
 
     render() {
         if (this.state.hasError) {
@@ -22,4 +22,4 @@ class ErrorBoundary extends Component {
     }
 }
 
-export default ErrorBoundary
+export default ErrorBoundary;

@@ -1,7 +1,7 @@
-import React from 'react'
-import PanelToggleButton from '../SidePanel/PanelToggleButton'
-import { NavLink } from 'react-router-dom'
-import './Header.css'
+import React from 'react';
+import PanelToggleButton from '../SidePanel/PanelToggleButton';
+import { NavLink } from 'react-router-dom';
+import './Header.css';
 
 
 const header = props => (
@@ -29,4 +29,4 @@ const header = props => (
     </header>
 )
 
-export default header
+export default header;

@@ -1,13 +1,12 @@
-import React, { Component } from 'react'
-import Hours from '../Hours/Hours'
-import VolunteersContext from '../VolunteersContext'
-import { Link } from 'react-router-dom'
-import goBack from './goBack.png'
-import addButton from '../Main/addButton.png'
-import config from '../config'
-import PropType from 'prop-types'
-import AddHours from '../AddHours/AddHours'
-import './VolunteerMain.css'
+import React, { Component } from 'react';
+import Hours from '../Hours/Hours';
+import VolunteersContext from '../VolunteersContext';
+import goBack from './goBack.png';
+import addButton from '../Main/addButton.png';
+import config from '../config';
+import PropType from 'prop-types';
+import AddHours from '../AddHours/AddHours';
+import './VolunteerMain.css';
 
 
 class VolunteerMain extends Component {
@@ -18,7 +17,7 @@ class VolunteerMain extends Component {
         history: {
             goBack: () => { }
         }
-    }
+    };
 
     constructor(props) {
         super(props)
@@ -26,7 +25,8 @@ class VolunteerMain extends Component {
             seen: false,
             total_hours: []
         }
-    }
+    };
+
     componentDidMount() {
         const volunteerId = this.props.match.params.volunteerId
         fetch(`${config.API_ENDPOINT}/api/volunteers/${volunteerId}`)
@@ -34,14 +34,15 @@ class VolunteerMain extends Component {
             .then(volunteer => {
                 this.setState({ total_hours: volunteer.total_hours })
             })
-    }
+    };
 
     togglePop = () => {
         this.setState({
             seen: !this.state.seen
         });
     };
-    static contextType = VolunteersContext
+
+    static contextType = VolunteersContext;
 
     render() {
         const { volunteerId } = this.props.match.params
@@ -92,6 +93,6 @@ class VolunteerMain extends Component {
 
 VolunteerMain.propTypes = {
     match: PropType.object.isRequired
-}
+};
 
-export default VolunteerMain
+export default VolunteerMain;

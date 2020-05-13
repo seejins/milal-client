@@ -1,22 +1,22 @@
-import React, { Component } from 'react'
-import config from '../config'
-import VolunteersContext from '../VolunteersContext'
-import PropTypes from 'prop-types'
-import './Hours.css'
+import React, { Component } from 'react';
+import config from '../config';
+import VolunteersContext from '../VolunteersContext';
+import PropTypes from 'prop-types';
+import './Hours.css';
 
 class Hours extends Component {
     static defaultProps = {
         onDeleteHours: () => { },
-    }
+    };
 
     constructor(props) {
         super(props)
         this.state = {
             seen: false
         }
-    }
+    };
 
-    static contextType = VolunteersContext
+    static contextType = VolunteersContext;
 
     handleClickDelete = e => {
         e.preventDefault()
@@ -39,7 +39,7 @@ class Hours extends Component {
             .catch(error => {
                 console.error({ error })
             })
-    }
+    };
 
     togglePop = () => {
         this.setState({
@@ -48,7 +48,7 @@ class Hours extends Component {
     };
 
     render() {
-        const { hours, date_added } = this.props
+        const { hours, date_added } = this.props;
         return (
             <>
                 <div className="hour">
@@ -76,6 +76,6 @@ Hours.propTypes = {
     id: PropTypes.number.isRequired,
     hours: PropTypes.number.isRequired,
     date_added: PropTypes.string.isRequired
-}
+};
 
-export default Hours
+export default Hours;

@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import VolunteersContext from '../VolunteersContext'
-import config from '../config'
-import ValidationError from '../ValidationError'
-import PropTypes from 'prop-types'
-import './AddVolunteer.css'
+import React, { Component } from 'react';
+import VolunteersContext from '../VolunteersContext';
+import config from '../config';
+import ValidationError from '../ValidationError';
+import PropTypes from 'prop-types';
+import './AddVolunteer.css';
 
 
 class AddVolunteer extends Component {
@@ -11,7 +11,7 @@ class AddVolunteer extends Component {
         history: {
             push: () => { }
         }
-    }
+    };
 
     constructor(props) {
         super(props)
@@ -21,13 +21,13 @@ class AddVolunteer extends Component {
                 touched: 'false'
             }
         }
-    }
+    };
 
     handleClick = () => {
         this.props.toggle();
     };
 
-    static contextType = VolunteersContext
+    static contextType = VolunteersContext;
 
     handleSubmit = e => {
         e.preventDefault()
@@ -56,11 +56,11 @@ class AddVolunteer extends Component {
             .catch(error => {
                 console.error({ error })
             })
-    }
+    };
 
     updateName(name) {
         this.setState({ name: { value: name, touched: true } })
-    }
+    };
 
     validateName() {
         const name = this.state.name.value.trim()
@@ -69,10 +69,10 @@ class AddVolunteer extends Component {
         } else if (name.length > 20) {
             return 'Name must be less than 20 characters'
         }
-    }
+    };
 
     render() {
-        const volunteerError = this.validateName()
+        const volunteerError = this.validateName();
 
         return (
             <div className='add-container'>

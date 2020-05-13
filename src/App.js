@@ -1,17 +1,17 @@
-import React, { Component, Fragment } from 'react'
-import { Route, Link } from 'react-router-dom'
-import LandingPage from './LandingPage/LandingPage'
-import Main from './Main/Main'
-import VolunteerMain from './VolunteerMain/VolunteerMain'
-import AddHours from './AddHours/AddHours'
-import AddVolunteer from './AddVolunteer/AddVolunteer'
-import SidePanel from './SidePanel/SidePanel'
-import Header from './Header/Header'
-import Backdrop from './Backdrop/Backdrop'
-import config from './config'
-import ErrorBoundary from './ErrorBoundary'
-import VolunteersContext from './VolunteersContext'
-import './App.css'
+import React, { Component, Fragment } from 'react';
+import { Route } from 'react-router-dom';
+import LandingPage from './LandingPage/LandingPage';
+import Main from './Main/Main';
+import VolunteerMain from './VolunteerMain/VolunteerMain';
+import AddHours from './AddHours/AddHours';
+import AddVolunteer from './AddVolunteer/AddVolunteer';
+import SidePanel from './SidePanel/SidePanel';
+import Header from './Header/Header';
+import Backdrop from './Backdrop/Backdrop';
+import config from './config';
+import ErrorBoundary from './ErrorBoundary';
+import VolunteersContext from './VolunteersContext';
+import './App.css';
 
 
 class App extends Component {
@@ -19,7 +19,7 @@ class App extends Component {
     hours: [],
     volunteers: [],
     sidePanelOpen: false
-  }
+  };
 
   componentDidMount() {
     Promise.all([
@@ -40,19 +40,19 @@ class App extends Component {
       .catch(error => {
         console.error({ error })
       })
-  }
+  };
 
   handleDeleteHours = hoursId => {
     this.setState({
       hours: this.state.hours.filter(hours => hours.id !== hoursId)
-    })
-  }
+    });
+  };
 
   handleDeleteVolunteer = volunteerId => {
     this.setState({
       volunteers: this.state.volunteers.filter(volunteers => volunteers.id !== volunteerId)
-    })
-  }
+    });
+  };
 
   handleAddHours = hours => {
     this.setState({
@@ -60,8 +60,8 @@ class App extends Component {
         ...this.state.hours,
         hours
       ]
-    })
-  }
+    });
+  };
 
   handleAddVolunteer = volunteer => {
     this.setState({
@@ -69,18 +69,18 @@ class App extends Component {
         ...this.state.volunteers,
         volunteer
       ]
-    })
-  }
+    });
+  };
 
   panelToggleClickHandler = () => {
     this.setState((prevState) => {
       return { sidePanelOpen: !prevState.sidePanelOpen }
-    })
-  }
+    });
+  };
 
   backdropClickHandler = () => {
-    this.setState({ sidePanelOpen: false })
-  }
+    this.setState({ sidePanelOpen: false });
+  };
 
   getMainRoute() {
     return (

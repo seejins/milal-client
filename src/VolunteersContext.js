@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const VolunteersContext = React.createContext({
     hours: [],
@@ -7,6 +7,6 @@ const VolunteersContext = React.createContext({
     deleteVolunteer: () => {},
     addVolunteer: () => {},
     addHours: () => {},
-})
+});
 
-export default VolunteersContext
+export default VolunteersContext;

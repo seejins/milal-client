@@ -1,16 +1,16 @@
-import React, { Component } from 'react'
-import VolunteersContext from '../VolunteersContext'
-import config from '../config'
-import ValidationError from '../ValidationError'
-import PropTypes from 'prop-types'
-import './AddHours.css'
+import React, { Component } from 'react';
+import VolunteersContext from '../VolunteersContext';
+import config from '../config';
+import ValidationError from '../ValidationError';
+import PropTypes from 'prop-types';
+import './AddHours.css';
 
 class AddHours extends Component {
     static defaultProps = {
         history: {
             push: () => { }
         }
-    }
+    };
 
     constructor(props) {
         super(props)
@@ -29,14 +29,14 @@ class AddHours extends Component {
                 value: `${this.props.volunteerId}`,
                 touched: 'false',
             }
-        }
-    }
+        };
+    };
 
     handleClick = () => {
         this.props.toggle();
     };
 
-    static contextType = VolunteersContext
+    static contextType = VolunteersContext;
 
     handleSubmit = e => {
         e.preventDefault()
@@ -44,7 +44,7 @@ class AddHours extends Component {
             hours: e.target['hours-amount'].value,
             date_added: new Date(),
             volunteer_id: e.target['volunteer-id'].value,
-        }
+        };
 
         fetch(`${config.API_ENDPOINT}/api/hours`, {
             method: 'POST',
@@ -67,15 +67,15 @@ class AddHours extends Component {
             .catch(error => {
                 console.error({ error })
             })
-    }
+    };
 
     updateHour(hour) {
         this.setState({ hours: { value: hour, touched: true } })
-    }
+    };
 
     updateVolunteer(volunteer) {
         this.setState({ volunteer: { value: volunteer, touched: true } })
-    }
+    };
 
     validateHours() {
         const hour = this.state.hours.value.trim()
@@ -84,7 +84,7 @@ class AddHours extends Component {
         } else if (hour <= 0 || hour > 24) {
             return 'Hours must be a number between 0 and 24 '
         }
-    }
+    };
 
     validateVolunteer() {
         const volunteer = this.state.volunteer.value.trim()
@@ -96,10 +96,10 @@ class AddHours extends Component {
     }
 
     render() {
-        const { volunteers = [] } = this.context
-        const volunteer = this.props.volunteer
-        const volunteerId = this.props.volunteerId
-        const filteredList = volunteers.filter(volunteers => volunteers.id != volunteerId)
+        const { volunteers = [] } = this.context;
+        const volunteer = this.props.volunteer;
+        const volunteerId = this.props.volunteerId;
+        const filteredList = volunteers.filter(volunteers => volunteers.id != volunteerId);
         return (
             <div className='add-container'>
                 <section className='add-content'>
@@ -145,6 +145,6 @@ AddHours.propTypes = {
     requiredObjectWithShape: PropTypes.shape({
         history: PropTypes.func.isRequired
     })
-}
+};
 
-export default AddHours
+export default AddHours;
